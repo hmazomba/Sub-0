@@ -8,6 +8,7 @@ namespace SA {
 	public class InputManager : Action {
 		public FloatVariable horizontal;
 		public FloatVariable vertical;
+		public BoolVariable jump;
 		public StateManagerVariable playerStates;
 		public ActionBatch inputUpdateBatch;
 		public override void Execute()
@@ -19,6 +20,12 @@ namespace SA {
 				playerStates.value.movementVariables.vertical = vertical.value;
 				float moveAmount = Mathf.Clamp01((Mathf.Abs(horizontal.value) + Mathf.Abs(vertical.value)));
 				playerStates.value.movementVariables.moveAmount = moveAmount;
+				playerStates.value.isJumping = jump.value;
+				/* if(jump.value == true)
+				{
+					playerStates.value.isJumping = true;
+				} */
+				
 			}
 		}
 	}

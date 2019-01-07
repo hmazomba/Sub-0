@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontal: {fileID: 11400000, guid: 009a1f86d6a2b284b95a66f7853916a2, type: 2}
   vertical: {fileID: 11400000, guid: 3261d3fd2159a154b9a3751313285a0d, type: 2}
+  jump: {fileID: 11400000, guid: 690b3f382e812bd4b8ec29e3c0d54c05, type: 2}
   playerStates: {fileID: 11400000, guid: 43984b7e3ea16b840b7a12fdc0dcd4f2, type: 2}
   inputUpdateBatch: {fileID: 11400000, guid: ac78a143aa65b8540ac91f62f14d3f8c, type: 2}

@@ -9,19 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e09f12a9b8fb5e44eb81fa499afbecc4, type: 3}
-  m_Name: Locomotion
+  m_Name: On Air
   m_EditorClassIdentifier: 
   onFixed: []
   onUpdate:
-  - {fileID: 11400000, guid: 1539bd592c8ebcc4dbf7cdced035a702, type: 2}
-  - {fileID: 11400000, guid: 95f4826378704d64da8a11d8f7a4b500, type: 2}
   - {fileID: 11400000, guid: 0702ab74dd0dada4090116708fcac12d, type: 2}
-  - {fileID: 11400000, guid: 8728563a3bc823243bc8f31cce0c1489, type: 2}
   onEnter: []
   onExit: []
   idCount: 1
   transitions:
   - id: 0
-    condition: {fileID: 11400000, guid: 3002f147e91d8044cb4de1c894359932, type: 2}
-    targetState: {fileID: 11400000, guid: f53a9b9f5484a9047899c9e2a413ff9a, type: 2}
+    condition: {fileID: 11400000, guid: fab8739740b0ee14a8fb7a2e23ee757c, type: 2}
+    targetState: {fileID: 11400000, guid: f4b59a62ccb73904cbfec2188dcad27f, type: 2}
     disable: 0

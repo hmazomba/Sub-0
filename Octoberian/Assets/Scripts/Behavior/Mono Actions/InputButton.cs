@@ -12,7 +12,7 @@ namespace SA
 		public KeyState keyState;
 		public bool updateBoolVar = true;
 		//You need to import the SO library from my github to use a BoolVariable asset
-	//	public SO.BoolVariable targetBoolVariable;
+		public SO.BoolVariable targetBoolVariable;
 
 
 		public override void Execute()
@@ -34,10 +34,10 @@ namespace SA
 
 			if (updateBoolVar)
 			{
-				//if (targetBoolVariable != null)
-				//{
-				//	targetBoolVariable.value = isPressed;
-				//}
+				if (targetBoolVariable != null)
+				{
+					targetBoolVariable.value = isPressed;
+				}
 			}
 		}
 

@@ -8,8 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c6063818ffabd4429ce98aed84574f2, type: 3}
-  m_Name: Anim_Movement Forward
+  m_Script: {fileID: 11500000, guid: ae3275b1734d24c4db7451f991262b8b, type: 3}
+  m_Name: Monitor Jump
   m_EditorClassIdentifier: 
-  stateActions:
-  - {fileID: 11400000, guid: 0e63ea885b0a0d544b059492f2cde807, type: 2}
+  description: Monitors jump input
+  onTrueAction: {fileID: 11400000, guid: 8bfbd2d4167917c49906bc664698d71c, type: 2}

@@ -6,12 +6,12 @@ namespace SA
 {
     public class StateManager : MonoBehaviour
     {
-        public float health;
-        
+        #region Variables
+        public float health;        
         public State currentState;
         public MovementVariables movementVariables;
 
-
+        [Header("Controller Physics")]
         [HideInInspector]
         public new Rigidbody rigidbody;
         [HideInInspector]
@@ -19,16 +19,26 @@ namespace SA
         [HideInInspector]
         public Transform mTransform;
         [HideInInspector]
-        public Animator anim;
-        [HideInInspector]
-        public AnimHashes hashes;
+        public float timeSinceJump;
 
+        [Header("Animator Data")]
+        [HideInInspector]
+        public Animator anim;
+        [HideInInspector]        
+        public AnimHashes hashes;
+        public AnimatorData animData;
+
+        [Header("Flags")]
+        public bool isJumping;
+        public bool isGrounded;
+        #endregion
         private void Start()
         {
             mTransform = this.transform;
             rigidbody = GetComponent<Rigidbody>();
             anim = GetComponentInChildren<Animator>();
             hashes = new AnimHashes();
+            animData = new AnimatorData(anim);
         }
 
         private void Update()
