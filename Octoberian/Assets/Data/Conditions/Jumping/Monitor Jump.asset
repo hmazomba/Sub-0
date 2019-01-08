@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Monitors jump input
   onTrueAction: {fileID: 11400000, guid: 8bfbd2d4167917c49906bc664698d71c, type: 2}
+  waitForAnimation: {fileID: 11400000, guid: a9a8f6b3b9203b5428cd392caa0b691d, type: 2}

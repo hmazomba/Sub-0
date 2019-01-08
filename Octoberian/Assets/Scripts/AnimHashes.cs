@@ -15,6 +15,8 @@ namespace SA
 		public int normalLanding = Animator.StringToHash("Land Normal");
 		public int hardLanding = Animator.StringToHash("Land Hard");
 		public int landWithRoll = Animator.StringToHash("Land Rolling");
+		public int isInteracting = Animator.StringToHash("Is Interacting");
+		public int vaultWalk = Animator.StringToHash("Vault Walk");
 	
 	}
 

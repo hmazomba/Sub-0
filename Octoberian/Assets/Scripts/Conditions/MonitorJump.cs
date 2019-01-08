@@ -8,16 +8,27 @@ namespace SA
 	public class MonitorJump : Condition {
 
 		public StateActions onTrueAction;
+		public State waitForAnimation;
 		public override bool CheckCondition(StateManager state)
 		{
+			//checks if jumping inout is received from the state manager
 			bool result = state.isJumping;
 			if(state.isJumping)
 			{
 				state.isJumping = false;
-				if(onTrueAction != null)
+				if(state.movementVariables.moveAmount > 0.2f)
 				{
 					onTrueAction.Execute(state);
 				}
+				else
+				{
+					result = false;
+					state.anim.SetBool(state.hashes.isInteracting, true);
+					state.anim.CrossFade(state.hashes.jumpIdle, 0.2f);
+					state.currentState = waitForAnimation;
+				}
+				
+				
 			}
 			return result;
 		}

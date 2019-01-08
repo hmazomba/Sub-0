@@ -15,17 +15,13 @@ namespace SA
             Vector3 currentVelocity = states.rigidbody.velocity;
             //stores time since the controller has left the ground
             states.timeSinceJump = Time.realtimeSinceStartup;
-            states.isGrounded = false;            
-            if(states.movementVariables.moveAmount > 0.1f)
-            {
-                states.anim.CrossFade(states.hashes.jumpForward, 0.2f);
-                currentVelocity += jumpSpeed * Vector3.up;
+            states.isGrounded = false;    
+            
+            states.anim.CrossFade(states.hashes.jumpForward, 0.2f);
+            currentVelocity += jumpSpeed * Vector3.up;
                  
-            }
-            else
-            {
-                states.anim.CrossFade(states.hashes.jumpIdle, 0.2f);                
-            }
+            
+            
             states.rigidbody.velocity = currentVelocity;
 
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SA
 {
-    [System.Serializable]
+    
     public class AnimatorData
     {
         public Transform leftFoot;

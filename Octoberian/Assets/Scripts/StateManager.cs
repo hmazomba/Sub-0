@@ -23,22 +23,28 @@ namespace SA
 
         [Header("Animator Data")]
         [HideInInspector]
-        public Animator anim;
-        [HideInInspector]        
+        public Animator anim;        
+        [HideInInspector]
+        public new Collider collider;        
         public AnimHashes hashes;
         public AnimatorData animData;
+        public VaultData vaultData;
 
         [Header("Flags")]
         public bool isJumping;
         public bool isGrounded;
+        public bool isVaulting;
         #endregion
         private void Start()
         {
+            
             mTransform = this.transform;
+            collider = GetComponent<Collider>();
             rigidbody = GetComponent<Rigidbody>();
             anim = GetComponentInChildren<Animator>();
             hashes = new AnimHashes();
             animData = new AnimatorData(anim);
+            //vaultData = new VaultData();
         }
 
         private void Update()
