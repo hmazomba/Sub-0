@@ -8,7 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33113ad5bbfc1f7449955ab516e6d220, type: 3}
-  m_Name: False Collider Status
+  m_Script: {fileID: 11500000, guid: 51949d5640fde474bbd58994c99ef20f, type: 3}
+  m_Name: Anim_Update Is Grounded
   m_EditorClassIdentifier: 
-  status: 0

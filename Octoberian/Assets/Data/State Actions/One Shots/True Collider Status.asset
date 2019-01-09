@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33113ad5bbfc1f7449955ab516e6d220, type: 3}
   m_Name: True Collider Status
   m_EditorClassIdentifier: 
-  status: 0
+  status: 1

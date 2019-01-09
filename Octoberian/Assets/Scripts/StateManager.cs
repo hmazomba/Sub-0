@@ -25,7 +25,7 @@ namespace SA
         [HideInInspector]
         public Animator anim;        
         [HideInInspector]
-        public new Collider collider;        
+        public new CapsuleCollider collider;        
         public AnimHashes hashes;
         public AnimatorData animData;
         public VaultData vaultData;
@@ -39,7 +39,7 @@ namespace SA
         {
             
             mTransform = this.transform;
-            collider = GetComponent<Collider>();
+            collider = GetComponent<CapsuleCollider>();
             rigidbody = GetComponent<Rigidbody>();
             anim = GetComponentInChildren<Animator>();
             hashes = new AnimHashes();

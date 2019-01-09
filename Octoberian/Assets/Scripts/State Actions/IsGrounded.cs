@@ -20,14 +20,21 @@ namespace SA
 
             RaycastHit hit;
             //if the ray hits something
-            if(Physics.Raycast(origin, dir, out hit, dis))
+            //if(Physics.Raycast(origin, dir, out hit, dis))
+            if(Physics.SphereCast(origin, .3f, dir, out hit, dis, Layers.ignoreLayersController))
             {
                 states.isGrounded = true;
             }
             else{
                 states.isGrounded = false;
             }
-            states.anim.SetBool(states.hashes.isGrounded, states.isGrounded);
+            if(states.isGrounded)
+            {
+                Vector3 targetPosition = states.mTransform.position;
+                targetPosition.y = hit.point.y;
+                states.mTransform.position = targetPosition;
+            }          
+            
         }
     }
 }

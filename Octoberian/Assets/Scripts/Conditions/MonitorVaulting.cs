@@ -15,8 +15,9 @@ namespace SA
 		public float origin2Offset = 0.2f;
 		//sets the distance for the ray that start from the end of the shoulder ray checking ground elevation
 		public float elevationRayDistance =1.5f;
+		public float secondElevationRayDistance = 4;
 		public float vaultOffsetPosition = 2;
-		public AnimationClip vaultWalkClip;
+		public VaultAnim[] vaultAnims;
 		public override bool CheckCondition(StateManager state)
 		{
 			bool result = false;
@@ -53,20 +54,64 @@ namespace SA
 					{
 						//we hit ground
 						result = true;
-						state.anim.SetBool(state.hashes.isInteracting, true);
-						state.anim.CrossFade(state.hashes.vaultWalk, 0.2f);
-						
-						state.vaultData.animLength = vaultWalkClip.length;
-						state.vaultData.isInit = false;
-						state.isVaulting = true;
 
-						state.vaultData.startPosition = state.mTransform.position;
-
-						Vector3 endPos = firstHit;
-						endPos += normalDirection *  vaultOffsetPosition;
-						state.vaultData.endingPosition = endPos;
-						
+						VaultAnim v = CheckForVaultingAnim(state.mTransform.position, hit.point, false);
+						if(v != null)
+						{
+							state.anim.SetBool(state.hashes.isInteracting, true);
+							state.anim.CrossFade(v.animName, 0.2f);
+							state.vaultData.animLength = v.clip.length;
+							state.vaultData.isInit = false;
+							state.isVaulting = true;
+							state.vaultData.startPosition = state.mTransform.position;
+							Vector3 endPos = firstHit;
+							endPos += normalDirection *  vaultOffsetPosition;
+							//endPos.y = hit.point.y;
+							state.vaultData.endingPosition = endPos;
+							result = true;
+						}						
 					}
+				}
+			}
+
+			if(!result)
+			{
+				Vector3 origin4 = origin + direction;
+				Debug.DrawRay(origin4, -Vector3.up * secondElevationRayDistance);
+				if(Physics.Raycast(origin4, -Vector3.up,  out hit, secondElevationRayDistance))
+				{
+					VaultAnim v = CheckForVaultingAnim(state.mTransform.position, hit.point, true);
+						if(v != null)
+						{
+							state.anim.SetBool(state.hashes.isInteracting, true);
+							state.anim.CrossFade(v.animName, 0.2f);
+							state.vaultData.animLength = v.clip.length;
+							state.vaultData.isInit = false;
+							state.isVaulting = true;
+							state.vaultData.startPosition = state.mTransform.position;
+							Vector3 endPos = hit.point;
+							state.vaultData.endingPosition = endPos;
+							result = true;
+						}
+				}
+			}
+			return result;
+		}
+		public VaultAnim CheckForVaultingAnim(Vector3 origin, Vector3 hitPoint, bool isDown)
+		{
+			VaultAnim result = null;
+
+			float diff = hitPoint.y - origin.y;
+
+			for (int i = 0; i < vaultAnims.Length; i++)
+			{
+				if(isDown && !vaultAnims[i].isDown)
+					continue;
+
+				if(Mathf.Abs(vaultAnims[i].min) < diff ||
+				Mathf.Abs(vaultAnims[i].max) > diff)
+				{
+					result = vaultAnims[i];
 				}
 			}
 			return result;

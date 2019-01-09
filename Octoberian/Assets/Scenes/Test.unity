@@ -11183,8 +11183,17 @@ MonoBehaviour:
   mTransform: {fileID: 0}
   timeSinceJump: 0
   anim: {fileID: 0}
+  collider: {fileID: 0}
+  vaultData:
+    startPosition: {x: 0, y: 0, z: 0}
+    endingPosition: {x: 0, y: 0, z: 0}
+    vaultSpeed: 1
+    animLength: 0
+    vaultTime: 0
+    isInit: 0
   isJumping: 0
   isGrounded: 0
+  isVaulting: 0
 --- !u!114 &1288606435
 MonoBehaviour:
   m_ObjectHideFlags: 0

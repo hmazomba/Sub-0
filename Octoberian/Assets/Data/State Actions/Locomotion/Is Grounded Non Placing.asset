@@ -8,7 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33113ad5bbfc1f7449955ab516e6d220, type: 3}
-  m_Name: False Collider Status
+  m_Script: {fileID: 11500000, guid: 04c3071417c2f2047b47f8acac8dd769, type: 3}
+  m_Name: Is Grounded Non Placing
   m_EditorClassIdentifier: 
-  status: 0
+  groundedDis: 0.8
+  onAirDis: 1
